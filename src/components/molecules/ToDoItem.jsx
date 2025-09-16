@@ -1,28 +1,33 @@
 import Button from "../atoms/Button";
 import Checkbox from "../atoms/Checkbox";
 
-const ToDoItem = ({ value, onChange, onRemove, checked }) => {
+function ToDoItem({ value, onChange, onRemove, checked }){
 
-  return (
-    <div className="toDoItem">
-        
-        <h3>{value}</h3>
-      <Checkbox
-        checked={checked}
-        onChange={onChange}
-        label="completato"
-      />
-      <Button
-        label="Rimuovi"
-        onClick={onRemove}
-      />
-      <Button
-        label="Modifica"
-        onClick={onChange}
-      />
+    const { id, text: valueText, completed, createdAt } = value;
 
-    </div>
-  );
+    return (
+        <div className="toDo-Item">
+        <div>
+            <div className={`todo-text ${completed ? 'todo-text--completed' : ''}`}>{valueText}</div>
+            <div className="todo-created">Creato il {String(createdAt).replace(',', ' alle')}</div>
+        </div>
+
+        <Checkbox
+            checked={checked}
+            onChange={() => onChange(id)}
+            label="completato"
+        />
+        <Button
+            label="Rimuovi"
+            onClick={onRemove}
+        />
+        <Button
+            label="Modifica"
+            onClick={onChange}
+        />
+
+        </div>
+    );
 };
 
 export default ToDoItem;

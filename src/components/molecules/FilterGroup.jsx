@@ -3,7 +3,7 @@ import Button from "../atoms/Button";
 function FilterGroup(){
 
     return (
-    <div className="filterGroup">
+    <div>
         <Button
             label="tutti"
         />

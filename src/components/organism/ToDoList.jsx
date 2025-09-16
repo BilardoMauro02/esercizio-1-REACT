@@ -5,7 +5,7 @@ function ToDoList(){
     
 
     return (
-    <div className="main">
+    <div>
         <FilterGroup/>
         <ToDoItem/>
     </div>
