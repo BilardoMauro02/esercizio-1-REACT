@@ -1,12 +1,11 @@
-function Input({value, onChange, placeholder = "", type = "text" }){
+function Input({value, onChange, placeholder = ""}){
     return(
-    <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-    />
-)
+        <input
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+    )
 };
 
 export default Input;

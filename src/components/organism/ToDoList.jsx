@@ -6,8 +6,8 @@ function ToDoList(){
 
     return (
     <div>
-        <FilterGroup/>
-        <ToDoItem/>
+        <FilterGroup />
+        <ToDoItem />
     </div>
     )
 }

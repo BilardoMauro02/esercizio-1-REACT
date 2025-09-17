@@ -1,20 +1,13 @@
 import Button from "../atoms/Button";
 
-function FilterGroup(){
+function FilterGroup() {
 
-    return (
-    <div>
-        <Button
-            label="tutti"
-        />
-        <Button
-            label="completati"
-        />
-        <Button
-            label="attivi"
-        />
-    </div>
-    )
+  const filter = ['all', 'completed', 'active'];
+
+  return (
+    filter.map((f) =>(
+      <Button key={f}>{f === 'all' ? 'tutti' : f === 'completed' ? 'attive' : 'completate'}</Button>
+    ))
+  );
 }
-
 export default FilterGroup;
