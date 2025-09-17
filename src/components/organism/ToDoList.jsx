@@ -1,13 +1,23 @@
 import ToDoItem from "../molecules/ToDoItem";
 import FilterGroup from "../molecules/FilterGroup";
 
-function ToDoList(){
-    
+function ToDoList({ todos, toggleTodo, deleteTodo, filter, setFilter}){
 
     return (
     <div>
-        <FilterGroup />
-        <ToDoItem />
+        <FilterGroup currentFilter={filter} setFilter={setFilter}/>
+
+        <ul>
+        {todos.map((todo) => (
+            <ToDoItem
+            key={todo.id}
+            completed={todo.completed}
+            onToggle={() => toggleTodo(todo.id)}
+            deleteTodo={() => deleteTodo(todo.id)}
+            text={todo.text}
+            />
+            ))}
+        </ul>
     </div>
     )
 }

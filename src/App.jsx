@@ -20,6 +20,15 @@ function App() {
   // 🔄 Funzioni che modificano SOLO lo stato centrale
 
 
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   const addTodo = (text) => {
     setTodos([
       ...todos,
@@ -32,14 +41,9 @@ function App() {
     setNextId(nextId + 1);
   };
 
-
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id != id))
+  }
 
 
   return (
@@ -48,49 +52,24 @@ function App() {
       <h1>Todo App</h1>
       
       <div className="toDo-Form">
-        <ToDoForm onAdd={addTodo}/>
+
+        {/* il nome del props deve rispettare quello che deve ricevere l'organismo */}
+        <ToDoForm addTodo={addTodo}/>
       </div>
 
       <div className="toDo-List">
-        <ToDoList></ToDoList>
+        <ToDoList 
+        todos={filteredTodos}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+        filter={filter}
+        setFilter={setFilter}
+        />
       </div>
-
-
-      <ul>
-        {filteredTodos.map((todo) => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleTodo(todo.id)}
-            />
-            <span className={todo.completed ? "completed" : ""}>
-              {todo.text}
-            </span>
-          </li>
-        ))}
-      </ul>
 
       <div>
         <span>{activeCount} attività rimanenti</span>
-        <button
-          className={filter === "all" ? "active" : ""}
-          onClick={() => setFilter("all")}
-        >
-          Tutte
-        </button>
-        <button
-          className={filter === "active" ? "active" : ""}
-          onClick={() => setFilter("active")}
-        >
-          Attive
-        </button>
-        <button
-          className={filter === "completed" ? "active" : ""}
-          onClick={() => setFilter("completed")}
-        >
-          Completate
-        </button>
+
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 function Checkbox({ checked, onChange}){
     return(
     <label>
-        <input 
+        <input
         type="checkbox"
         checked={checked} 
         onChange={(e) => onChange(e.target.value)}/>
