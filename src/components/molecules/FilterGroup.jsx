@@ -1,18 +1,21 @@
 import Button from "../atoms/Button";
-
+import "./FilterGroup.css"
 function FilterGroup({currentFilter, setFilter}) {
 
   const filter = ['all', 'completed', 'active'];
 
   return (
-    filter.map((f) =>(
-      <Button 
-      key={f}
-      variant={currentFilter === f ? "primary" : "secondary"}
-      onClick={() => setFilter(f)}
-
-      >{f == 'all' ? 'tutti' : f == 'active' ? 'attive' : 'completate'}</Button>
-    ))
-  );
+    <div className="filter-group">
+      {filter.map((f) => (
+        <Button
+          key={f}
+          variant={currentFilter === f ? "primary" : "secondary"}
+          onClick={() => setFilter(f)}
+        >
+          {f === 'all' ? 'tutti' : f === 'active' ? 'attive' : 'completate'}
+        </Button>
+      ))}
+    </div>
+    )
 }
 export default FilterGroup;

@@ -1,6 +1,8 @@
+import "./Button.css";
+
 function Button({ children, onClick, variant = "primary", type = "button" }) {
     return(
-    <button type={type} onClick={onClick} variant={variant}>
+    <button type={type} onClick={onClick} className= {`button ${variant}`}>
         {children}
     </button>)
 };

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ToDoForm from "./components/organism/ToDoForm";
 import ToDoList from "./components/organism/ToDoList";
 
+import "./App.css"
+
 function App() {
   // 🎯 SINGLE SOURCE OF TRUTH: tutto lo stato centralizzato!
   const [todos, setTodos] = useState([]);
@@ -18,8 +20,6 @@ function App() {
   const activeCount = todos.filter((todo) => !todo.completed).length;
 
   // 🔄 Funzioni che modificano SOLO lo stato centrale
-
-
 
   const toggleTodo = (id) => {
     setTodos(
@@ -47,12 +47,11 @@ function App() {
 
 
   return (
-    <div>
+    <div className="app-container">
       {/* 🎯 L'interfaccia si basa SOLO sullo stato centrale */}
       <h1>Todo App</h1>
       
       <div className="toDo-Form">
-
         {/* il nome del props deve rispettare quello che deve ricevere l'organismo */}
         <ToDoForm addTodo={addTodo}/>
       </div>

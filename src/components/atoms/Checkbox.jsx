@@ -1,12 +1,18 @@
-function Checkbox({ checked, onChange}){
-    return(
-    <label>
-        <input
+import "./Checkbox.css";
+
+function Checkbox({ checked, onChange, id, label }) {
+  return (
+    <label htmlFor={id} className="checkbox-wrapper">
+      <input
         type="checkbox"
-        checked={checked} 
-        onChange={(e) => onChange(e.target.value)}/>
+        id={id}
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+      />
+      {label && <span>{label}</span>}
     </label>
-    )
-};
+  );
+}
+
 
 export default Checkbox;

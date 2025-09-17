@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 
+import "./ToDoForm.css";
+
 function ToDoForm({ addTodo }) {
     const [inputValue, setInputValue] = useState('');
 
@@ -19,7 +21,7 @@ function ToDoForm({ addTodo }) {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form className="todo-form" onSubmit={handleSubmit}>
             <Input value={inputValue} onChange={handleInputChange} placeholder='inserisci una toDo'/>
             <Button type="submit" children="invia"/>
         </form>

@@ -1,10 +1,12 @@
 import ToDoItem from "../molecules/ToDoItem";
 import FilterGroup from "../molecules/FilterGroup";
 
+import "./ToDoList.css";
+
 function ToDoList({ todos, toggleTodo, deleteTodo, filter, setFilter}){
 
     return (
-    <div>
+    <div className="todo-list-container">
         <FilterGroup currentFilter={filter} setFilter={setFilter}/>
 
         <ul>

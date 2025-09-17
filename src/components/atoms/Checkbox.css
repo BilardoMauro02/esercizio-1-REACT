@@ -1,0 +1,20 @@
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #007bff; /* colore del segno di spunta */
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-wrapper input[type="checkbox"]:hover {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
